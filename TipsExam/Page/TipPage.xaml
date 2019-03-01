@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:local="clr-namespace:TipsExam;assembly=TipsExam" 
+                      x:Class="TipsExam.Page.TipPage">
+    <ContentPage.BindingContext>
+        <local:ViewModel.TipViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="5,5,5,5">
+            
+            <!-- 
+                IsEnabled (for binding) doesnt work : 
+            https://stackoverflow.com/questions/45942828/image-isenabled-with-binding-property-does-not-work-xamarin-forms
+            -->
+            
+            <!-- Edition Mode -->
+            
+            <Entry Placeholder="Titulo" Text="{Binding Title}"  IsVisible="{Binding IsEditable}" />
+            <Entry Placeholder="Descripcion" Text="{Binding Description}" IsVisible="{Binding IsEditable}" />    
+            <DatePicker Date="{Binding Date}" IsVisible="{Binding IsEditable}" />
+            <Button Text="Agregar" Command="{Binding RegisterTipCommand}" IsVisible="{Binding IsEditable}"/>
+            
+            <!-- Readonly Mode -->
+            
+            <Label Text="Título" IsVisible="{Binding IsReadonly}" FontAttributes="Bold" FontSize="Large" />
+            <Label Text="{Binding Title}" IsVisible="{Binding IsReadonly}" FontSize="Medium" />
+            <Label Text="Descripción" IsVisible="{Binding IsReadonly}" FontAttributes="Bold" FontSize="Large" />
+            <Label Text="{Binding Description}" IsVisible="{Binding IsReadonly}" FontSize="Medium" />
+            <Label Text="Fecha de Creación" IsVisible="{Binding IsReadonly}" FontAttributes="Bold" FontSize="Large" />
+            <Label Text="{Binding DateFormatted}" IsVisible="{Binding IsReadonly}" FontSize="Medium" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
