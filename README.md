@@ -1,7 +1,7 @@
-Creado en Visual Studio 2019 para Mac.
+Built on Visual Studio 2019 for Mac.
 
-En ocasiones es útil limpiar cache de Visual Studio, antes de correr la aplicación.
+It's sometimes useful to clean the project prior to run it:
 
-  1. Escriba `sh clean.sh` en el terminal
-  2. Restaure Nu-Get packages en Proyecto NetStandard:
-  3. Limpie el proyecto: `Build` -> `Clean All`.
+  1. Type `sh clean.sh` on OSX terminal.
+  2. Restore Nu-Get packages on NetStandtard project (common)
+  3. Clean project: `Build` -> `Clean All`.
